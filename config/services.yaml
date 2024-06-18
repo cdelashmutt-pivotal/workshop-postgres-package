@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 ---
 apiVersion: v1
 kind: Service
@@ -42,7 +43,7 @@ metadata:
     helm.sh/chart: postgresql-15.5.6
     app.kubernetes.io/component: primary
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: postgres-test.workshop.amer.end2end.link
+    external-dns.alpha.kubernetes.io/hostname: #@ "postgres-test" + data.values.host_suffix + "." + data.values.ingress_domain
 spec:
   type: LoadBalancer
   externalTrafficPolicy: "Cluster"
