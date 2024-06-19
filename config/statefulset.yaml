@@ -86,6 +86,8 @@ spec:
                 secretKeyRef:
                   name: postgres-existing-secret
                   key: postgres-password
+            - name: POSTGRES_DATABASE
+              value: inclusion
             # Replication
             # Initdb
             # Standby
