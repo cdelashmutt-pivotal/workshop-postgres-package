@@ -37,6 +37,7 @@ metadata:
     app.kubernetes.io/component: primary
   annotations:
     external-dns.alpha.kubernetes.io/hostname: #@ "postgres-test" + data.values.host_suffix + "." + data.values.ingress_domain
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:
   type: LoadBalancer
   externalTrafficPolicy: "Cluster"
